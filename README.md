@@ -18,7 +18,7 @@ filetxt-2025-12-22.bak
 ## Installation
 Clone this repository:
 ```bash
-git clone https://github.com/yourusername/BAK.git
+git clone https://github.com/O36/BAK.git
 cd BAK
 ```
 
