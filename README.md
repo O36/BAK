@@ -2,7 +2,7 @@
 A simple command-line utility for creating dated backup copies of files.
 
 ## What it does
-bak creates a backup copy of a file with a timestamp, removing the extension separator to create clean backup filenames.
+bak creates a backup copy of a file with a timestamp to create clean backup filenames.
 ```bash
 $ ls
 file.txt

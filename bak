@@ -4,14 +4,13 @@ if [ $# -eq 0 ]; then
 	exit 1
 fi
 
-if [ ! -f "$1" ]; then
-	echo "Error: 404"
+if [ ! -e "$1" ]; then
+	echo "Error404: '$1' not found"
 	exit 1
 fi
 
 filename="$1"
-backup_name=$(echo "$filename"|sed 's/\.\([^.]*\)$/\1/')
-backup_file="${backup_name}-$(date +%F).bak"
+backup_file="${filename}-$(date +%F).bak"
 
 cp -r "$filename" "$backup_file"
 
