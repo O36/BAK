@@ -12,6 +12,12 @@ fi
 filename="$1"
 backup_file="${filename}-$(date +%F).bak"
 
+version=2
+while [ -e "$backup_file" ]; do
+	backup_file="${filename}-$(date +%F)_v${version}.bak"
+	((version++))
+done
+
 cp -r "$filename" "$backup_file"
 
 if [ -e "${backup_file}" ]; then
