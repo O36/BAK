@@ -62,6 +62,7 @@ The script:
 3. Appends the current date in YYYY-MM-DD format
 4. Adds a .bak extension
 5. Creates a copy of the original file with the new name
+6. If a backup of a file has already been made that day it will add \_(number) to new files
 
 ## Requirements
 * Bash shell
