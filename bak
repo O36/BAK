@@ -14,4 +14,6 @@ backup_file="${filename}-$(date +%F).bak"
 
 cp -r "$filename" "$backup_file"
 
-echo "Backup created: $backup_file"
+if [ -e "${backup_file}" ]; then
+	echo "Backup created: $backup_file"
+fi
