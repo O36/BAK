@@ -4,22 +4,23 @@ if [ $# -eq 0 ]; then
 	exit 1
 fi
 
-if [ ! -e "$1" ]; then
-	echo "Error404: '$1' not found"
-	exit 1
-fi
+for filename in "$@"; do
+	if [ ! -e "${filename}" ]; then
+		echo -e "\033[0;31mError404: '$filename' not found\033[0m"
+		continue
+	fi
 
-filename="$1"
-backup_file="${filename}-$(date +%F).bak"
+	backup_file="${filename}-$(date +%F).bak"
 
-version=2
-while [ -e "$backup_file" ]; do
-	backup_file="${filename}-$(date +%F)_v${version}.bak"
-	((version++))
+	version=2
+	while [ -e "$backup_file" ]; do
+		backup_file="${filename}-$(date +%F)_v${version}.bak"
+		((version++))
+	done
+
+	cp -r "$filename" "$backup_file"
+
+	if [ -e "${backup_file}" ]; then
+		echo "Backup created: $backup_file"
+	fi
 done
-
-cp -r "$filename" "$backup_file"
-
-if [ -e "${backup_file}" ]; then
-	echo "Backup created: $backup_file"
-fi

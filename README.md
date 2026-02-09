@@ -8,11 +8,11 @@ $ ls
 file.txt
 
 $ bak file.txt
-Backup created: filetxt-2025-12-22.bak
+Backup created: file.txt-2025-12-22.bak
 
 $ ls
 file.txt
-filetxt-2025-12-22.bak
+file.txt-2025-12-22.bak
 ```
 
 ## Installation
@@ -46,23 +46,23 @@ bak [filename]
 ## Examples
 ```bash
 $ bak config.yaml
-Backup created: configyaml-2025-12-22.bak
+Backup created: config.yaml-2025-12-22.bak
 
 $ bak my.important.document.pdf
-Backup created: my.importantdocumentpdf-2025-12-22.bak
+Backup created: my.important.document.pdf-2025-12-22.bak
 
-$ bak script.sh
-Backup created: scriptsh-2025-12-22.bak
+# Full pathnames are also accepted, the backup will be placed in the same directory as the original
+$ bak /var/log/script.sh
+Backup created: /var/log/script.sh-2025-12-22.bak
 ```
 
 ## How it works
 The script:
 1. Takes a filename as input
-2. Removes the dot before the file extension
-3. Appends the current date in YYYY-MM-DD format
-4. Adds a .bak extension
-5. Creates a copy of the original file with the new name
-6. If a backup of a file has already been made that day it will add \_(number) to new files
+2. Appends the current date in YYYY-MM-DD format
+3. Adds a .bak extension
+4. Creates a copy of the original file with the new name
+5. If a backup of a file has already been made that day it will add \_(number) to new files
 
 ## Requirements
 * Bash shell
